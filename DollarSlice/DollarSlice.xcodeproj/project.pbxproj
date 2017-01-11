@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E24DE17D1E268CDE00A4F9B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24DE17C1E268CDE00A4F9B5 /* MapKit.framework */; };
 		E28C562D1E253C840014361E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C562C1E253C840014361E /* AppDelegate.swift */; };
 		E28C562F1E253C840014361E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C562E1E253C840014361E /* ViewController.swift */; };
 		E28C56321E253C840014361E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28C56301E253C840014361E /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		E28C56371E253C840014361E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28C56351E253C840014361E /* LaunchScreen.storyboard */; };
 		E28C56421E253C840014361E /* DollarSliceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C56411E253C840014361E /* DollarSliceTests.swift */; };
 		E28C564D1E253C840014361E /* DollarSliceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C564C1E253C840014361E /* DollarSliceUITests.swift */; };
+		E28C565B1E254E5E0014361E /* PizzaSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C565A1E254E5E0014361E /* PizzaSpot.swift */; };
+		E28C565D1E255EB70014361E /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28C565C1E255EB70014361E /* VCMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E24DE17C1E268CDE00A4F9B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E28C56291E253C840014361E /* DollarSlice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DollarSlice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28C562C1E253C840014361E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E28C562E1E253C840014361E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		E28C56481E253C840014361E /* DollarSliceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DollarSliceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28C564C1E253C840014361E /* DollarSliceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarSliceUITests.swift; sourceTree = "<group>"; };
 		E28C564E1E253C840014361E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28C565A1E254E5E0014361E /* PizzaSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PizzaSpot.swift; sourceTree = "<group>"; };
+		E28C565C1E255EB70014361E /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E24DE17D1E268CDE00A4F9B5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E24DE17B1E268CDE00A4F9B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E24DE17C1E268CDE00A4F9B5 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E28C56201E253C840014361E = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +96,7 @@
 				E28C56401E253C840014361E /* DollarSliceTests */,
 				E28C564B1E253C840014361E /* DollarSliceUITests */,
 				E28C562A1E253C840014361E /* Products */,
+				E24DE17B1E268CDE00A4F9B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +115,9 @@
 			children = (
 				E28C562C1E253C840014361E /* AppDelegate.swift */,
 				E28C562E1E253C840014361E /* ViewController.swift */,
+				E28C565A1E254E5E0014361E /* PizzaSpot.swift */,
 				E28C56301E253C840014361E /* Main.storyboard */,
+				E28C565C1E255EB70014361E /* VCMapView.swift */,
 				E28C56331E253C840014361E /* Assets.xcassets */,
 				E28C56351E253C840014361E /* LaunchScreen.storyboard */,
 				E28C56381E253C840014361E /* Info.plist */,
@@ -187,6 +205,9 @@
 		E28C56211E253C840014361E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					"Dollar Slice Header",
+				);
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Prenderville.net;
@@ -194,6 +215,11 @@
 					E28C56281E253C840014361E = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E28C563C1E253C840014361E = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -259,8 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28C565D1E255EB70014361E /* VCMapView.swift in Sources */,
 				E28C562F1E253C840014361E /* ViewController.swift in Sources */,
 				E28C562D1E253C840014361E /* AppDelegate.swift in Sources */,
+				E28C565B1E254E5E0014361E /* PizzaSpot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +533,7 @@
 				E28C56531E253C840014361E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E28C56541E253C840014361E /* Build configuration list for PBXNativeTarget "DollarSliceTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +542,7 @@
 				E28C56561E253C840014361E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E28C56571E253C840014361E /* Build configuration list for PBXNativeTarget "DollarSliceUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +551,7 @@
 				E28C56591E253C840014361E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
