@@ -14,8 +14,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var didAddButton: UIButton! //name buttons with image
-    
     var allSpots = [PizzaSpot]() //array of spots
     
     var locMan = CLLocationManager()
@@ -26,6 +24,7 @@ class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         topLabel.text = "Dollar Slice"
@@ -37,34 +36,62 @@ class ViewController: UIViewController {
         // or set initialLocation to = locMan.startUpdatingLocation()
         centerMapOnLocation(location: initialLocation)
         
-        let userCoordinate = CLLocationCoordinate2D(latitude: 40.7352, longitude: -73.989)
-        let dollarslice = PizzaSpot(title:"$1", location: "NYC", coordinate: userCoordinate )
+        let fixedCoordinate = CLLocationCoordinate2D(latitude: 40.7352, longitude: -73.989)
+        let dollarslice = PizzaSpot(title:"$1", location: "NYC", coordinate: fixedCoordinate )
         
         allSpots.append(dollarslice)
         
         mapView.addAnnotations(allSpots)
-        mapView.delegate = self
-
+        
+        //NOT DISPLAYING
+        
+//       let alert = UIAlertController(title: "Welcome!", message: "Find $1 Slice", preferredStyle: .alert)
+//        
+//         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//        
+//        self.present(alert, animated: true, completion:nil)
+//        
+//        mapView.delegate = self
     }
     
     @IBAction func didAddButton(_ sender: UIButton) {
  
-        //PROMPT FOR USER INPUT WITH FIELD
-        
-       
-        
         //change to actually get USER coordinate from locMan
         let userCoordinate = CLLocationCoordinate2D(latitude: 40.7252, longitude: -73.999)
         
-        //Initialize with user data
-        let spot = PizzaSpot(title: "Second", location: "Closeby", coordinate: userCoordinate)
-      
-        allSpots.append(spot)
-        mapView.addAnnotations(allSpots) // BAD PRACTICE, PIN SHOULD APPEAR WITHOUT THIS LINE
-        mapView.delegate = self
+        //PROMPT FOR USER INPUT WITH FIELD
+        var inputTextField: UITextField?
         
-
+        let popup = UIAlertController(title: "Add a new spot", message: "", preferredStyle:.alert)
+        
+        popup.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,
+            handler: {(action)-> Void in
+            //what happens when OK is pressed
+            let text = inputTextField?.text
+            let spot = PizzaSpot(title: text!, location: "Closeby", coordinate: userCoordinate)
+            self.allSpots.append(spot)
+            self.mapView.addAnnotations(self.allSpots)
+        
+        }))
+        popup.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler:nil))
+        
+        
+        popup.addTextField(configurationHandler: {(textField: UITextField!) in
+            textField.placeholder = "Name:"
+            inputTextField = textField
+        })
+        
+        self.present(popup, animated:true, completion:nil)
+        
+    
     }
+    //crashes app, need to implement
+    @IBAction func didHelpButton(_ sender: UIButton) {
+        let listing = allSpots[1].title! //FIX THIS FOR DEBUGGING
+        let info = UIAlertController(title: "info", message: listing, preferredStyle: .alert)
+        self.present(info, animated: true, completion: nil)
+    }
+    
     
     func addPizzaSpot(spot: PizzaSpot){
         //get data from user
@@ -87,11 +114,13 @@ class ViewController: UIViewController {
     }
     
     // Helper method for centering map
-    let regionRadius:CLLocationDistance = 2000
+    let regionRadius:CLLocationDistance = 3000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated:true)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
